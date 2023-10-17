@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Yun
+Path=/home/pi/SKRE-HBr-Vision_YUN
+Exec=python Run.py
+Terminal=true
