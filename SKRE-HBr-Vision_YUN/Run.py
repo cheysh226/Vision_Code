@@ -15,7 +15,7 @@ par = Params()
 
 # 로거 설정
 logging.basicConfig(
-    filename='RGB_LOG.txt',
+    filename='DB_RGB.txt',
     filemode='a',
     level=logging.INFO,
     format='%(asctime)s %(message)s',
@@ -29,8 +29,8 @@ def run_process(camera_address, area_size) :
     try :
         while ret :
             ret, img = cam.read()
-            img = cv2.resize(img,(600,337))
-            # cv2.imshow("CCTV_TEST",img)
+            img = cv2.resize(img,(600,337)) #
+            cv2.imshow("CCTV_TEST",img)
             # cv2.waitKey(1)
             circleinfo = confirm_circleinfo(
                 img,
@@ -42,11 +42,11 @@ def run_process(camera_address, area_size) :
                 B, G, R = get_current_bgr_value(img,circleinfo,area_size)
                 color_value = int(R * 4056 / 255)
                 regis_pos = int(color_value / 255)
-                bus.write_byte_data(device_address, regis_pos, color_value % 255)
+                #bus.write_byte_data(device_address, regis_pos, color_value % 255)
 
-                r_str = f"{R:4}"
-                g_str = f"{G:4}"
-                b_str = f"{B:4}"
+                r_str = f"{int(R):4}"
+                g_str = f"{int(G):4}"
+                b_str = f"{int(B):4}"
                 
                 # 로그 메시지 작성
                 message = f"R: {r_str} G: {g_str} B: {b_str}"
@@ -54,7 +54,7 @@ def run_process(camera_address, area_size) :
                                     
             time.sleep(1)
     except Exception as e:
-        logging.error(f"Error: {str(e)}")
+        print(f"Error: {str(e)}")
 
 
 
