@@ -20,7 +20,7 @@ def get_target_area(img,circle,r=30) :
     roi = img[y-r:y+r, x-r:x+r]
     return roi
 
-def get_mean_r(img) :
+def get_mean_bgr(img) :
     # ver. 0.0.1. (2023.03.20)
     b,g,r = np.mean(img,axis=(0,1))
-    return r
+    return b,g,r

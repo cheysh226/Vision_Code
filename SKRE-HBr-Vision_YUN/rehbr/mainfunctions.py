@@ -30,9 +30,9 @@ def confirm_circleinfo(img,param,circleinfo) :
             circleinfo = circles[0]
     return circleinfo
         
-def get_current_r_value(img, circleinfo,area_size) :
+def get_current_bgr_value(img, circleinfo,area_size) :
     area = get_target_area(img,circleinfo,area_size)
-    return get_mean_r(area)
+    return get_mean_bgr(area)
 
 
 
