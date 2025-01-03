@@ -1,0 +1,18 @@
+--trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org
+
+
+ffmpeg -i BROKEN_MG14.mp4 -ss 00:00:03 -to 00:00:20 -filter:v fps=2 -q:v 2 -start_number 0 -s 960x540 C:\Users\mr2024041\Desktop\SAM2\IMAGE/%05d.jpg
+
+ffmpeg -i TEST_SUBWAY.mp4 -q:v 2 -start_number 0 C:\Users\mr2024041\Desktop\SAM2\IMAGE/%05d.jpg
+
+python efficientsam.py -i ./IMAGE/IMAGE_MG14_Broken.png -n 1 -f
+
+python efficientsam.py -i ./IMAGE/IMAGE_MG14_2.png -n 1 -f
+
+
+pip install -r requirements.txt
+which means the options are:
+
+pip freeze > requirements.txt
+pip download -r requirements.txt -d wheelfiles
+pip install -r requirements.txt --no-index --find-links path/to/wheels
